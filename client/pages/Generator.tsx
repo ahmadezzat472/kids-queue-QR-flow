@@ -1,9 +1,21 @@
 import { useState } from "react";
 import { Button } from "../components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select";
 import { Switch } from "../components/ui/switch";
 import { Badge } from "../components/ui/badge";
 import { Separator } from "../components/ui/separator";
@@ -15,14 +27,14 @@ const Generator = () => {
     destinationUrl: "",
     campaignName: "",
     school: "",
-    additionalTags: ""
+    additionalTags: "",
   });
   const [qrType, setQrType] = useState("standard");
   const [branded, setBranded] = useState(true);
   const [logo, setLogo] = useState(true);
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const generateQRCode = () => {
@@ -41,8 +53,8 @@ const Generator = () => {
             </h1>
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Quickly generate QR codes for campaigns, enrollment links, or wishlist pages.
-            Customize your code with branding and tags.
+            Quickly generate QR codes for campaigns, enrollment links, or
+            wishlist pages. Customize your code with branding and tags.
           </p>
         </div>
 
@@ -70,7 +82,9 @@ const Generator = () => {
                     id="destination"
                     placeholder="https://example.com"
                     value={formData.destinationUrl}
-                    onChange={(e) => handleInputChange("destinationUrl", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("destinationUrl", e.target.value)
+                    }
                     className="bg-background"
                   />
                 </div>
@@ -84,7 +98,9 @@ const Generator = () => {
                     id="campaign"
                     placeholder="Enter campaign name"
                     value={formData.campaignName}
-                    onChange={(e) => handleInputChange("campaignName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("campaignName", e.target.value)
+                    }
                     className="bg-background"
                   />
                 </div>
@@ -94,16 +110,24 @@ const Generator = () => {
                   <Label htmlFor="school" className="text-sm font-medium">
                     School / Classroom
                   </Label>
-                  <Select onValueChange={(value) => handleInputChange("school", value)}>
+                  <Select
+                    onValueChange={(value) =>
+                      handleInputChange("school", value)
+                    }
+                  >
                     <SelectTrigger className="bg-background">
                       <SelectValue placeholder="Select a school or classroom" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="elementary">Elementary School</SelectItem>
+                      <SelectItem value="elementary">
+                        Elementary School
+                      </SelectItem>
                       <SelectItem value="middle">Middle School</SelectItem>
                       <SelectItem value="high">High School</SelectItem>
                       <SelectItem value="university">University</SelectItem>
-                      <SelectItem value="corporate">Corporate Training</SelectItem>
+                      <SelectItem value="corporate">
+                        Corporate Training
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -117,10 +141,15 @@ const Generator = () => {
                     id="tags"
                     placeholder="Add tags separated by commas"
                     value={formData.additionalTags}
-                    onChange={(e) => handleInputChange("additionalTags", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("additionalTags", e.target.value)
+                    }
                     className="bg-background"
                   />
-                  <Badge variant="secondary" className="text-xs bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                  <Badge
+                    variant="secondary"
+                    className="text-xs bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                  >
                     CSV
                   </Badge>
                 </div>
@@ -139,11 +168,15 @@ const Generator = () => {
                     </div>
                     <div className="flex items-center space-x-2">
                       <div className="w-4 h-4 rounded-full border-2 border-muted-foreground"></div>
-                      <span className="text-sm text-muted-foreground">Branded</span>
+                      <span className="text-sm text-muted-foreground">
+                        Branded
+                      </span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <div className="w-4 h-4 rounded-full border-2 border-muted-foreground"></div>
-                      <span className="text-sm text-muted-foreground">+ Logo</span>
+                      <span className="text-sm text-muted-foreground">
+                        + Logo
+                      </span>
                     </div>
                   </div>
                   <p className="text-xs text-muted-foreground">
@@ -152,7 +185,7 @@ const Generator = () => {
                 </div>
 
                 {/* Generate Button */}
-                <Button 
+                <Button
                   onClick={generateQRCode}
                   className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white"
                   size="lg"
@@ -164,16 +197,14 @@ const Generator = () => {
           </div>
 
           {/* Preview Panel */}
-          <div className="space-y-6">
+          <div>
             <Card className="border-0 shadow-xl bg-white/70 dark:bg-card/70 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Eye className="w-5 h-5 text-purple-600" />
                   <span>Preview</span>
                 </CardTitle>
-                <CardDescription>
-                  Your QR code will appear here
-                </CardDescription>
+                <CardDescription>Your QR code will appear here</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="aspect-square bg-gradient-to-br from-purple-50 to-white dark:from-purple-950 dark:to-gray-900 rounded-lg border-2 border-dashed border-purple-200 dark:border-purple-800 flex flex-col items-center justify-center p-8">
@@ -200,7 +231,9 @@ const Generator = () => {
                     <div className="text-center space-y-4 text-muted-foreground">
                       <QrCode className="w-16 h-16 mx-auto" />
                       <div className="space-y-2">
-                        <p className="font-medium">Enter a destination link to generate</p>
+                        <p className="font-medium">
+                          Enter a destination link to generate
+                        </p>
                         <p className="text-sm">QR Code</p>
                       </div>
                     </div>
@@ -221,19 +254,6 @@ const Generator = () => {
                     </div>
                   </div>
                 )}
-              </CardContent>
-            </Card>
-
-            {/* Additional Placeholder */}
-            <Card className="border-0 shadow-xl bg-white/70 dark:bg-card/70 backdrop-blur-sm">
-              <CardContent className="pt-6">
-                <div className="aspect-video bg-gradient-to-br from-purple-50 to-white dark:from-purple-950 dark:to-gray-900 rounded-lg border-2 border-dashed border-purple-200 dark:border-purple-800 flex items-center justify-center">
-                  <div className="text-center space-y-2 text-muted-foreground">
-                    <Palette className="w-8 h-8 mx-auto" />
-                    <p className="text-sm font-medium">Customization Options</p>
-                    <p className="text-xs">Coming Soon</p>
-                  </div>
-                </div>
               </CardContent>
             </Card>
           </div>

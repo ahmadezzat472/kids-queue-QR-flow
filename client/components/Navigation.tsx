@@ -8,8 +8,10 @@ const Navigation = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const isDarkMode = localStorage.getItem("theme") === "dark" || 
-      (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const isDarkMode =
+      localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
     setIsDark(isDarkMode);
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
@@ -39,14 +41,17 @@ const Navigation = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center space-x-6">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-purple-700 text-white">
-              <QrCode className="h-5 w-5" />
+            <div>
+              <img
+                src="/logos/noBgColor.png"
+                alt="Logo"
+                className="w-[190px]"
+              />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-              QRFlow
-            </span>
           </Link>
-          
+        </div>
+
+        <div className="flex items-center space-x-2">
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
               const isActive = location.pathname === item.to;
@@ -56,7 +61,11 @@ const Navigation = () => {
                   asChild
                   variant={isActive ? "default" : "ghost"}
                   size="sm"
-                  className={isActive ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}
+                  className={
+                    isActive
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }
                 >
                   <Link to={item.to} className="flex items-center space-x-2">
                     <item.icon className="h-4 w-4" />
@@ -66,9 +75,6 @@ const Navigation = () => {
               );
             })}
           </div>
-        </div>
-
-        <div className="flex items-center space-x-2">
           <Button
             variant="ghost"
             size="sm"
