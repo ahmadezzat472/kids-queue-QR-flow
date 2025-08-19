@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Purple QR Code App Theme
+   * All colors expressed as HSL values for Tailwind CSS compatibility.
+  */
+  :root {
+    --background: 270 100% 98%;
+    --foreground: 273 65% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 273 65% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 273 65% 15%;
+
+    --primary: 271 81% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 269 100% 95%;
+    --secondary-foreground: 272 72% 47%;
+
+    --muted: 269 100% 95%;
+    --muted-foreground: 271 25% 60%;
+
+    --accent: 270 95% 75%;
+    --accent-foreground: 273 65% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 269 100% 92%;
+    --input: 269 100% 92%;
+    --ring: 271 81% 56%;
+
+    --radius: 0.75rem;
+
+    --brand: 271 81% 56%;
+    --brand-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --sidebar-background: 270 100% 98%;
+    --sidebar-foreground: 273 65% 25%;
+    --sidebar-primary: 271 81% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 269 100% 95%;
+    --sidebar-accent-foreground: 272 72% 47%;
+    --sidebar-border: 269 100% 92%;
+    --sidebar-ring: 271 81% 56%;
+  }
+
+  .dark {
+    --background: 274 87% 8%;
+    --foreground: 270 100% 98%;
+
+    --card: 273 65% 12%;
+    --card-foreground: 270 100% 98%;
+
+    --popover: 273 65% 12%;
+    --popover-foreground: 270 100% 98%;
+
+    --primary: 270 91% 65%;
+    --primary-foreground: 274 87% 8%;
+
+    --secondary: 272 67% 20%;
+    --secondary-foreground: 270 100% 98%;
+
+    --muted: 272 67% 20%;
+    --muted-foreground: 270 25% 75%;
+
+    --accent: 270 95% 35%;
+    --accent-foreground: 270 100% 98%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 270 100% 98%;
+
+    --border: 272 67% 20%;
+    --input: 272 67% 20%;
+    --ring: 270 91% 65%;
+
+    --brand: 270 91% 65%;
+    --brand-foreground: 274 87% 8%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 270 100% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 274 87% 8%;
+
+    --sidebar-background: 274 87% 8%;
+    --sidebar-foreground: 270 100% 98%;
+    --sidebar-primary: 270 91% 65%;
+    --sidebar-primary-foreground: 274 87% 8%;
+    --sidebar-accent: 272 67% 20%;
+    --sidebar-accent-foreground: 270 100% 98%;
+    --sidebar-border: 272 67% 20%;
+    --sidebar-ring: 270 91% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-purple-50 via-background to-purple-100 text-foreground min-h-screen;
+  }
+
+  .dark body {
+    @apply bg-gradient-to-br from-purple-950 via-background to-purple-900;
+  }
+}
